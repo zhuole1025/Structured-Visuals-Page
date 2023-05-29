@@ -26,13 +26,16 @@ vim index.html
 
 Click the red box in the picture:
 
-![step1](xxx.png)
+<center>
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step1.png" width="350px">
+<br>
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step2.png" width="350px">
+<br>
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step3.png" width="350px">
+</center>
 
-![step2](xxx.png)
-
-![step3](xxx.png)
-
-That will automatically make a webpage under address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAME).
+That will automatically make a webpage under
+address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAME).
 
 ## Used by
 
