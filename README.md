@@ -27,11 +27,11 @@ vim index.html
 Click the red box in the picture:
 
 <center>
-<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step1.png" width="350px">
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step1.png" width="450px">
 <br>
-<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step2.png" width="350px">
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step2.png" width="450px">
 <br>
-<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step3.png" width="350px">
+<img src="https://github.com/ximinng/GithubPages-Template/raw/main/deploy/step3.png" width="450px">
 </center>
 
 That will automatically make a webpage under
