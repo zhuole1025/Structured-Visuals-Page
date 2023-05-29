@@ -14,10 +14,25 @@ To use this template, clone the repo:
 git clone https://github.com/ximinng/GithubPages-Template
 ```
 
+### Modify
+
+Modify the corresponding text content in the template:
+
+```
+vim index.html
+```
+
 ## Deploy
 
-Copy the contents into a `gh-pages` branch of a GitHub repo. That will automatically make a webpage under
-address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAME).
+Click the red box in the picture:
+
+![step1](xxx.png)
+
+![step2](xxx.png)
+
+![step3](xxx.png)
+
+That will automatically make a webpage under address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAME).
 
 ## Used by
 
