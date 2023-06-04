@@ -4,6 +4,8 @@ This web page template is specially made by me for academic papers.
 
 Look at what this web page looks like [here](https://ximinng.github.io/GithubPages-Template/).
 
+**You are welcome to copy this website's code for your personal use, please attribute the source with a link back to this page and remove the analytics code in the header.**
+
 ## Setup
 
 ### Clone
