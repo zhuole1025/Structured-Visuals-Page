@@ -53,4 +53,4 @@ This webpage source code based on [bootstrap v5.3](https://getbootstrap.com/docs
 
 ## Contacts
 
-**Ximing Xing** - `@ximinng <https://github.com/ximinng>`_ - ``ximingxing@gmail.com``
+**Ximing Xing** - `@ximinng <https://github.com/ximinng>` - ``ximingxing@gmail.com``
