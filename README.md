@@ -41,6 +41,7 @@ address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAM
 
 ## Used by
 
+- [DiffSketcher](https://ximinng.github.io/DiffSketcher-project/)
 - [Inversion-by-Inversion](https://ximinng.github.io/inversion-by-inversion-project/)
 
 ## License
