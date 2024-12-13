@@ -41,6 +41,7 @@ address [GITHUB_USERNAME.github.io/REPO_NAME](GITHUB_USERNAME.github.io/REPO_NAM
 
 ## Used by
 
+- [SVGFusion](https://ximinng.github.io/SVGFusionProject/)
 - [PyTorch-SVGRender](https://ximinng.github.io/PyTorch-SVGRender-project/)
 - [SVGDreamer](https://ximinng.github.io/SVGDreamer-project/)
 - [DiffSketcher](https://ximinng.github.io/DiffSketcher-project/)
