@@ -72,6 +72,7 @@ a.link:focus, a.link:hover {
     justify-content: center;
 }
 
+
 #links a {
     width: 115px;
     height: 35px;
@@ -148,6 +149,18 @@ a.link:focus, a.link:hover {
 #links #demo::before {
     content: "\e005";
     font-size: 20px;
+}
+
+#links #zhihu::before {
+    content: "";
+    background-image: url("icons/extra/zhihu.svg");
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 /*
