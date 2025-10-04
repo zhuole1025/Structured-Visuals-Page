@@ -48,38 +48,95 @@
     <hr>
     <!-- Paper Title -->
     <div class="container text-center">
-        <span class="title-font x-gradient-font">MyPaper: Paper Title</span>
+        <span class="title-font x-gradient-font">Factuality Matters:</span>
+        <a class="title-font text-body-emphasis" href="https://arxiv.org/abs/2507.15846">
+            Image Generation and Editing Meet Structured Visuals
+        </a>
     </div>
     <hr>
     <!-- author list -->
     <div class="container author text-center">
-        <!-- authors -->
-        <div class="row gy-2"> <!-- 使用 gy-* 统一控制行间距 -->
-            <div class="col-12 col-md">
-                <a class="link" href="#">first author</a><sup>1</sup>
+        <!-- authors arranged in neat rows -->
+        <div class="row">
+            <div class="col-12">
+                <div class="author-name">
+                    <a href="https://le-zhuo.com/"><strong>Le Zhuo</strong></a><sup>1,3,*</sup>
+                </div>
+                <div class="author-name">
+                    <a href="#"><strong>Songhao Han</strong></a><sup>2,*</sup>
+                </div>
+                <div class="author-name">
+                    <a href="#"><strong>Yuandong Pu</strong></a><sup>4,5</sup>
+                </div>
+                <div class="author-name">
+                    <a href="#"><strong>Boxiang Qiu</strong></a><sup>2</sup>
+                </div>
             </div>
-            <div class="col-12 col-md">
-                <p class="fs-5">second author<sup>1</sup></p>
-            </div>
-            <div class="col-12 col-md">second author<sup>1</sup></div>
         </div>
-        <div class="row" style="margin-top: -0.5rem;">
-            <div class="col-12 col-md">
-                <a class="link" href="#">first author</a><sup>2</sup>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="author-name">
+                    <a href="#"><strong>Sayak Paul</strong></a><sup>6</sup>
+                </div>
+                <div class="author-name">
+                    <a href="#"><strong>Yue Liao</strong></a><sup>7</sup>
+                </div>
+                <div class="author-name">                                                                                                                                    
+                     <a href="#"><strong>Yihao Liu</strong></a><sup>5</sup>
+                 </div>
+                <div class="author-name">
+                    <a href="#"><strong>Jie Shao</strong></a><sup>8</sup>
+                </div>
             </div>
-            <div class="col-12 col-md">second author<sup>2</sup></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                 <div class="author-name">
+                    <a href="#"><strong>Xi Chen</strong></a><sup>9</sup>
+                 </div> 
+                <div class="author-name">
+                    <a href="#"><strong>Si Liu</strong></a><sup>2,†</sup>
+                </div>
+                <div class="author-name">
+                    <a href="#"><strong>Hongsheng Li</strong></a><sup>1,†</sup>
+                </div>
+            </div>
         </div>
         <!-- author organization -->
         <div class="row mt-3">
-            <div class="col-12">
-                <sup>1</sup>Beihang University &nbsp;&nbsp;<sup>2</sup>Tencent
+            <div class="col-12 organization">
+                <sup>1</sup>CUHK MMLab &nbsp;&nbsp;
+                <sup>2</sup>Beihang University &nbsp;&nbsp;
+                <sup>3</sup>Krea AI &nbsp;&nbsp;
+                <sup>4</sup>Shanghai Jiao Tong University
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 organization">
+                <sup>5</sup>Shanghai AI Lab &nbsp;&nbsp;
+                <sup>6</sup>Hugging Face &nbsp;&nbsp;
+                <sup>7</sup>National University of Singapore
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 organization">
+                <sup>8</sup>ByteDance &nbsp;&nbsp;
+                <sup>9</sup>The University of Hong Kong
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 organization">
+                <sup>*</sup>Equal Contribution &nbsp;&nbsp;
+                <sup>†</sup>Corresponding Authors
             </div>
         </div>
     </div>
     <!-- paper status -->
-    <div class="text-center" style="margin-top: 20px">
+    <!-- <div class="text-center" style="margin-top: 20px">
         <h3>Paper status - Under Review</h3>
-    </div>
+    </div> -->
     <!-- links -->
     <div class="text-center">
         <div class="row justify-content-md-center">
@@ -106,9 +163,14 @@
     <!-- teaser -->
     <div class="text-center">
         <figure class="figure">
-            <img src="assets/beautiful_teaser.png" class="img-thumbnail figure-img img-fluid rounded"
+            <img src="assets/fig1.jpg" class="img-thumbnail figure-img img-fluid rounded"
                  alt="beautiful teaser">
-            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            <figcaption class="figure-caption">
+                <strong>
+                    Overview of our work. 
+                </strong>
+                Left: We showcase the diverse text-to-image (T2I) and editing examples from our dataset. In contrast to natural images, modeling structured visual demands sophisticated composition planning, strong multimodal understanding, and precise text rendering, as highlighted by the three key characteristics. Right: Our model demonstrates competitive performance against leading closed-source systems in both structured image generation and editing benchmarks.
+            </figcaption>
         </figure>
     </div>
 
@@ -121,15 +183,7 @@
         <div class="card-body x-gradient-block">
             <h2 class="card-title text-center card-title-margin">Abstract</h2>
             <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo
-                dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero,
-                elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate
-                dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue
-                felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla
-                vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl,
-                porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras
-                volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam.
-                Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+                While modern visual generation models excel at creating aesthetically pleasing natural images, they struggle with producing or editing structured visuals like charts, diagrams, and mathematical figures, which demand composition planning, text rendering, and multimodal reasoning for factual fidelity. To address this, we present the first comprehensive, systematic investigation of this domain, encompassing data construction, model training, and an evaluation benchmark. First, we construct a large-scale dataset of 1.3 million high-quality structured image pairs derived from executable drawing programs and augmented with chain-of-thought reasoning annotations. Building on this dataset, we train a unified model that integrates a multimodal language model with FLUX.1-Kontext via a lightweight connector for enhanced multimodal understanding. A three-stage training curriculum enables progressive feature alignment, knowledge infusion, and reasoning-augmented generation, further boosted by an external reasoner at inference time. Finally, we introduce StructBench, a novel benchmark for generation and editing with over 2,000 challenging instances, and an accompanying evaluation metric, StructScore, which employs a multi-round Q&A protocol to assess fine-grained factual accuracy. Evaluations of 15 models reveal that even state-of-the-art closed-source systems score below 50%. Our model attains strong editing performance, and inference-time reasoning yields consistent gains across diverse architectures. By releasing the dataset, model, and benchmark, we aim to advance unified multimodal foundations for structured visuals.
             </p>
         </div>
     </div>
@@ -138,22 +192,14 @@
     <!-- Online Demo -->
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title card-title-margin">Online Demo</h2>
+            <h2 class="card-title card-title-margin">Structured Image Dataset</h2>
             <hr class="body-hr"/>
             <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo
-                dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero,
-                elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate
-                dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue
-                felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla
-                vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl,
-                porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras
-                volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam.
-                Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+                We release a large-scale Structured Image Dataset tailored for generation and editing of charts, diagrams, math figures, and more. Starting from ~2M executable programs (Python, LaTeX) across diverse categories, we render valid source images, use GPT-5 to extract salient visual features, and jointly produce aligned image-editing and code-editing instructions. GPT-5 then applies code edits to synthesize target programs and images, yielding strictly aligned source-target pairs. A comprehensive post-processing pipeline removes invalid, low-difference, and low-information samples, resulting in 1.3M high-quality examples. Each example includes source/target images, a dense caption, an image-editing instruction, and a three-step reasoning trajectory to support precise, fact-grounded structured visual generation and editing.
             </p>
             <div class="text-center">
                 <figure class="figure">
-                    <img src="./assets/online_demo.png" class="img-thumbnail figure-img img-fluid rounded"
+                    <img src="./assets/fig2.jpg" class="img-thumbnail figure-img img-fluid rounded"
                          alt="online demo">
                     <figcaption class="figure-caption">A caption for the above image.</figcaption>
                 </figure>
@@ -240,25 +286,35 @@
     <!--    </div>-->
     <!--    <br>-->
 
-    <!-- Methodology -->
+    <!-- Method -->
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title card-title-margin">Methodology</h2>
+            <h2 class="card-title card-title-margin">Model Training</h2>
             <hr class="body-hr"/>
             <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo
-                dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero,
-                elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate
-                dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue
-                felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla
-                vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl,
-                porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras
-                volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam.
-                Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
+                StructBench is a curated benchmark for structured visual generation and editing, spanning Math, Graph, Chart, Puzzle, and Table domains. We select diverse, high-quality items from our code-rendered dataset via clustering, stratified sampling, and dual GPT-5/human review. For each item, GPT-5 produces detailed descriptions that are decomposed into atomic Q&A pairs covering fine-grained attributes and relations. Evaluation uses StructScore, a controlled multi-turn VLM protocol with open-ended answers compared against concise ground truths. Through human audits and iterative Q&A refinement, metric reliability on ground-truth images improves from ~80% to >95%. The final benchmark includes 2,043 items and 30,989 Q&A pairs, with most samples featuring seven or more questions.
             </p>
             <div class="text-center">
                 <figure class="figure">
-                    <img src="assets/method.png" class="figure-img img-fluid rounded" alt="method">
+                    <img src="assets/fig4.jpg" class="figure-img img-fluid rounded" alt="method">
+                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Benchmark -->
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title card-title-margin">StructBench</h2>
+            <hr class="body-hr"/>
+            <p class="card-text">
+                StructBench is a curated benchmark for structured visual generation and editing, spanning Math, Graph, Chart, Puzzle, and Table domains. We select diverse, high-quality items from our code-rendered dataset via clustering, stratified sampling, and dual GPT-5/human review. For each item, GPT-5 produces detailed descriptions that are decomposed into atomic Q&A pairs covering fine-grained attributes and relations. Evaluation uses StructScore, a controlled multi-turn VLM protocol with open-ended answers compared against concise ground truths. Through human audits and iterative Q&A refinement, metric reliability on ground-truth images improves from ~80% to >95%. The final benchmark includes 2,043 items and 30,989 Q&A pairs, with most samples featuring seven or more questions.
+            </p>
+            <div class="text-center">
+                <figure class="figure">
+                    <img src="assets/fig3.jpg" class="figure-img img-fluid rounded" alt="method">
                     <figcaption class="figure-caption">A caption for the above image.</figcaption>
                 </figure>
             </div>
