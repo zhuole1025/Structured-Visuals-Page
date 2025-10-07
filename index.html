@@ -34,13 +34,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Website Title -->
-    <title>Github Pages Template</title>
+    <title>Image Generation and Editing Meet Structured Visuals</title>
     <!-- The description that appears when you share the link -->
-    <meta property="og:description" content="SVGDreamer: Text Guided SVG Generation with Diffusion Model"/>
+    <meta property="og:description" content="Factuality Matters: Image Generation and Editing Meet Structured Visuals"/>
     <!-- Used to display page descriptions in search results -->
-    <meta name="description" content="SVGDreamer, SVG generation, text-to-svg, text2svg">
+    <meta name="description" content="Factuality Matters: Image Generation and Editing Meet Structured Visuals">
     <!-- favicon -->
-    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="icon" href="assets/paper_logo_circle.png" type="image/x-icon">
 </head>
 
 <body>
@@ -48,6 +48,7 @@
     <hr>
     <!-- Paper Title -->
     <div class="container text-center">
+        <img src="assets/paper_logo_circle.png" alt="Logo" style="height: 6em; vertical-align: middle; margin-right: 0.3em; margin-bottom: 1.5em;">
         <span class="title-font x-gradient-font">Factuality Matters:</span>
         <a class="title-font text-body-emphasis" href="https://arxiv.org/abs/2507.15846">
             Image Generation and Editing Meet Structured Visuals
@@ -60,10 +61,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="author-name">
-                    <a href="https://le-zhuo.com/"><strong>Le Zhuo</strong></a><sup>1,3,*</sup>
+                    <a href="https://le-zhuo.com/"><strong>Le Zhuo</strong></a><sup>1,3*</sup>
                 </div>
                 <div class="author-name">
-                    <a href="#"><strong>Songhao Han</strong></a><sup>2,*</sup>
+                    <a href="#"><strong>Songhao Han</strong></a><sup>2*</sup>
                 </div>
                 <div class="author-name">
                     <a href="#"><strong>Yuandong Pu</strong></a><sup>4,5</sup>
@@ -97,10 +98,10 @@
                     <a href="#"><strong>Xi Chen</strong></a><sup>9</sup>
                  </div> 
                 <div class="author-name">
-                    <a href="#"><strong>Si Liu</strong></a><sup>2,†</sup>
+                    <a href="#"><strong>Si Liu</strong></a><sup>2†</sup>
                 </div>
                 <div class="author-name">
-                    <a href="#"><strong>Hongsheng Li</strong></a><sup>1,†</sup>
+                    <a href="#"><strong>Hongsheng Li</strong></a><sup>1†</sup>
                 </div>
             </div>
         </div>
@@ -151,11 +152,11 @@
                     <a id="code" href="#">Code</a>
                 </div>
                 <div class="col col-lg-2">
-                    <a id="demo" href="#">Demo</a>
+                    <a id="demo" href="#">Dataset</a>
                 </div>
-                <div class="col col-lg-2">
+                <!-- <div class="col col-lg-2">
                     <a id="zhihu" href="#">Zhihu</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -183,8 +184,929 @@
         <div class="card-body x-gradient-block">
             <h2 class="card-title text-center card-title-margin">Abstract</h2>
             <p class="card-text">
-                While modern visual generation models excel at creating aesthetically pleasing natural images, they struggle with producing or editing structured visuals like charts, diagrams, and mathematical figures, which demand composition planning, text rendering, and multimodal reasoning for factual fidelity. To address this, we present the first comprehensive, systematic investigation of this domain, encompassing data construction, model training, and an evaluation benchmark. First, we construct a large-scale dataset of 1.3 million high-quality structured image pairs derived from executable drawing programs and augmented with chain-of-thought reasoning annotations. Building on this dataset, we train a unified model that integrates a multimodal language model with FLUX.1-Kontext via a lightweight connector for enhanced multimodal understanding. A three-stage training curriculum enables progressive feature alignment, knowledge infusion, and reasoning-augmented generation, further boosted by an external reasoner at inference time. Finally, we introduce StructBench, a novel benchmark for generation and editing with over 2,000 challenging instances, and an accompanying evaluation metric, StructScore, which employs a multi-round Q&A protocol to assess fine-grained factual accuracy. Evaluations of 15 models reveal that even state-of-the-art closed-source systems score below 50%. Our model attains strong editing performance, and inference-time reasoning yields consistent gains across diverse architectures. By releasing the dataset, model, and benchmark, we aim to advance unified multimodal foundations for structured visuals.
+                While modern visual generation models excel at creating aesthetically pleasing natural images, they struggle with producing or editing structured visuals like charts, diagrams, and mathematical figures, which demand composition planning, text rendering, and multimodal reasoning for factual fidelity. To address this, we present the first comprehensive, systematic investigation of this domain, encompassing data construction, model training, and an evaluation benchmark. First, we construct a large-scale dataset of 1.3 million high-quality structured image pairs derived from executable drawing programs and augmented with chain-of-thought reasoning annotations. Building on it, we train a unified model that integrates a VLM with FLUX.1 Kontext via a lightweight connector for enhanced multimodal understanding. A three-stage training curriculum enables progressive feature alignment, knowledge infusion, and reasoning-augmented generation, further boosted by an external reasoner at inference time. Finally, we introduce StructBench, a novel benchmark for generation and editing with over 1,700 challenging instances, and an accompanying evaluation metric, StructScore, which employs a multi-round Q\&A protocol to assess fine-grained factual accuracy. Evaluations of 15 models reveal that even leading closed-source systems remain far from satisfactory. Our model attains strong editing performance, and inference-time reasoning yields consistent gains across diverse architectures. By releasing the dataset, model, and benchmark, we aim to advance unified multimodal foundations for structured visuals.
             </p>
+        </div>
+    </div>
+    <br>
+
+    <!-- Benchmark Results -->
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title card-title-margin">StructBench</h2>
+            <hr class="body-hr"/>
+
+    <!-- 仅用于本表格的极简排序/标注样式（作用域限此卡片） -->
+    <style>
+        #vdc-leaderboard thead th[data-sort] { cursor: pointer; user-select: none; white-space: nowrap; }
+        #vdc-leaderboard thead th[data-sort]::after { content: ""; margin-left: .35rem; opacity: .45; }
+        #vdc-leaderboard thead th[aria-sort="asc"]::after { content: "▲"; opacity: 1; }
+        #vdc-leaderboard thead th[aria-sort="desc"]::after { content: "▼"; opacity: 1; }
+        #vdc-leaderboard td.text-end { font-variant-numeric: tabular-nums; }
+        /* 第一/第二名（Acc 列）色块 */
+        #vdc-leaderboard td.best::before,
+        #vdc-leaderboard td.second::before {
+            content: ""; display: inline-block; width: .7em; height: .7em; border-radius: 2px;
+            margin-right: .4em; vertical-align: -1px;
+        }
+        #vdc-leaderboard td.best::before   { background: #3b82f6; } /* 蓝：第一 */
+        #vdc-leaderboard td.second::before { background: #22c55e; } /* 绿：第二 */
+        </style>
+    
+        <style>
+        /* —— 仅该表使用 —— */
+        #vdc-leaderboard thead tr:first-child th {           /* 分组标题行 */
+        text-align: center !important;
+        vertical-align: middle;
+        padding-left: 0.5rem;  /* 可按需调 */
+        padding-right: 0.5rem; /* 可按需调 */
+        }
+        #vdc-leaderboard thead tr:first-child th[rowspan] {  /* 左侧 Model 列保持左对齐 */
+        text-align: left !important;
+        }
+        #vdc-leaderboard thead tr:nth-child(2) th {          /* 指标行（Acc/PSNR）整体居中 */
+        text-align: center !important;
+        }
+        </style>
+
+        <p class="card-text">
+        <strong>StructEditBench (charts only)</strong> — reporting <strong>Accuracy (%)</strong> &amp; <strong>PSNR</strong>. Click any column to sort.
+        <span class="ms-2"><span style="display:inline-block;width:.75em;height:.75em;background:#3b82f6;border-radius:2px;margin-right:.35em;"></span>Best Performance</span>
+        <span class="ms-3"><span style="display:inline-block;width:.75em;height:.75em;background:#22c55e;border-radius:2px;margin-right:.35em;"></span>Second Best</span>
+        </p>
+    
+    <div class="table-responsive">
+    <table id="vdc-leaderboard" class="table table-hover align-middle">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col" rowspan="2">Model</th>
+                <th scope="col" colspan="2">Math</th>
+                <th scope="col" colspan="2">Chart</th>
+                <th scope="col" colspan="2">Graph</th>
+                <th scope="col" colspan="2">Puzzle</th>
+                <th scope="col" colspan="2">Science</th>
+                <th scope="col" colspan="2">Table</th>
+                <th scope="col" colspan="2">Overall</th>
+            </tr>
+            <tr>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th><th class="text-end">PSNR ↑</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <td>Nano Banana</td>
+                <td class="text-end" data-sort-value="50.46">50.46</td><td class="text-end">20.77</td>
+                <td class="text-end" data-sort-value="46.42">46.42</td><td class="text-end">14.93</td>
+                <td class="text-end" data-sort-value="52.97">52.97</td><td class="text-end">21.22</td>
+                <td class="text-end" data-sort-value="66.56">66.56</td><td class="text-end">22.92</td>
+                <td class="text-end" data-sort-value="69.16">69.16</td><td class="text-end">22.61</td>
+                <td class="text-end" data-sort-value="75.71">75.71</td><td class="text-end">19.75</td>
+                <td class="text-end" data-sort-value="51.57">51.57</td><td class="text-end">21.09</td>
+            </tr>
+            <tr>
+                <td>GPT-Image</td>
+                <td class="text-end" data-sort-value="51.49">51.49</td><td class="text-end">17.06</td>
+                <td class="text-end" data-sort-value="45.82">45.82</td><td class="text-end">12.56</td>
+                <td class="text-end" data-sort-value="50.71">50.71</td><td class="text-end">17.24</td>
+                <td class="text-end" data-sort-value="76.03">76.03</td><td class="text-end">16.55</td>
+                <td class="text-end" data-sort-value="67.61">67.61</td><td class="text-end">16.61</td>
+                <td class="text-end" data-sort-value="83.26">83.26</td><td class="text-end">14.35</td>
+                <td class="text-end" data-sort-value="52.20">52.20</td><td class="text-end">16.64</td>
+            </tr>
+            <tr>
+                <td>Seedream 4.0</td>
+                <td class="text-end" data-sort-value="51.06">51.06</td><td class="text-end">23.63</td>
+                <td class="text-end" data-sort-value="46.83">46.83</td><td class="text-end">16.54</td>
+                <td class="text-end" data-sort-value="51.72">51.72</td><td class="text-end">24.12</td>
+                <td class="text-end" data-sort-value="71.13">71.13</td><td class="text-end">26.93</td>
+                <td class="text-end" data-sort-value="69.22">69.22</td><td class="text-end">26.46</td>
+                <td class="text-end" data-sort-value="88.19">88.19</td><td class="text-end">24.75</td>
+                <td class="text-end" data-sort-value="52.85">52.85</td><td class="text-end">24.45</td>
+            </tr>
+            <tr class="table-group-divider">
+                <td>UniWorld-V1</td>
+                <td class="text-end" data-sort-value="9.41">9.41</td><td class="text-end">8.84</td>
+                <td class="text-end" data-sort-value="5.99">5.99</td><td class="text-end">7.87</td>
+                <td class="text-end" data-sort-value="8.83">8.83</td><td class="text-end">6.16</td>
+                <td class="text-end" data-sort-value="9.11">9.11</td><td class="text-end">7.71</td>
+                <td class="text-end" data-sort-value="19.91">19.91</td><td class="text-end">7.67</td>
+                <td class="text-end" data-sort-value="16.13">16.13</td><td class="text-end">8.24</td>
+                <td class="text-end" data-sort-value="8.40">8.40</td><td class="text-end">8.21</td>
+            </tr>
+            <tr>
+                <td>DiMOO</td>
+                <td class="text-end" data-sort-value="26.79">26.79</td><td class="text-end">21.56</td>
+                <td class="text-end" data-sort-value="16.52">16.52</td><td class="text-end">14.98</td>
+                <td class="text-end" data-sort-value="24.03">24.03</td><td class="text-end">21.77</td>
+                <td class="text-end" data-sort-value="29.52">29.52</td><td class="text-end">22.26</td>
+                <td class="text-end" data-sort-value="26.08">26.08</td><td class="text-end">22.57</td>
+                <td class="text-end" data-sort-value="24.64">24.64</td><td class="text-end">19.47</td>
+                <td class="text-end" data-sort-value="21.00">21.00</td><td class="text-end">21.49</td>
+            </tr>
+            <tr>
+                <td>OmniGen2</td>
+                <td class="text-end" data-sort-value="29.44">29.44</td><td class="text-end">15.95</td>
+                <td class="text-end" data-sort-value="18.55">18.55</td><td class="text-end">12.44</td>
+                <td class="text-end" data-sort-value="34.63">34.63</td><td class="text-end">11.31</td>
+                <td class="text-end" data-sort-value="28.61">28.61</td><td class="text-end">16.51</td>
+                <td class="text-end" data-sort-value="39.55">39.55</td><td class="text-end">15.60</td>
+                <td class="text-end" data-sort-value="30.36">30.36</td><td class="text-end">16.60</td>
+                <td class="text-end" data-sort-value="24.30">24.30</td><td class="text-end">15.49</td>
+            </tr>
+            <tr>
+                <td>Ovis-U1</td>
+                <td class="text-end" data-sort-value="31.64">31.64</td><td class="text-end">18.45</td>
+                <td class="text-end" data-sort-value="21.94">21.94</td><td class="text-end">13.30</td>
+                <td class="text-end" data-sort-value="38.03">38.03</td><td class="text-end">19.01</td>
+                <td class="text-end" data-sort-value="42.08">42.08</td><td class="text-end">17.92</td>
+                <td class="text-end" data-sort-value="44.52">44.52</td><td class="text-end">18.68</td>
+                <td class="text-end" data-sort-value="35.58">35.58</td><td class="text-end">16.62</td>
+                <td class="text-end" data-sort-value="28.06">28.06</td><td class="text-end">18.25</td>
+            </tr>
+            <tr>
+                <td>Hidream-E1.1</td>
+                <td class="text-end" data-sort-value="28.07">28.07</td><td class="text-end">18.43</td>
+                <td class="text-end" data-sort-value="26.36">26.36</td><td class="text-end">12.91</td>
+                <td class="text-end" data-sort-value="29.63">29.63</td><td class="text-end">18.26</td>
+                <td class="text-end" data-sort-value="43.77">43.77</td><td class="text-end">18.04</td>
+                <td class="text-end" data-sort-value="36.66">36.66</td><td class="text-end">16.47</td>
+                <td class="text-end" data-sort-value="48.79">48.79</td><td class="text-end">17.12</td>
+                <td class="text-end" data-sort-value="29.63">29.63</td><td class="text-end">18.01</td>
+            </tr>
+            <tr>
+                <td>Bagel</td>
+                <td class="text-end" data-sort-value="21.27">21.27</td><td class="text-end">21.38</td>
+                <td class="text-end" data-sort-value="27.11">27.11</td><td class="text-end">16.38</td>
+                <td class="text-end" data-sort-value="29.94">29.94</td><td class="text-end">22.70</td>
+                <td class="text-end" data-sort-value="41.59">41.59</td><td class="text-end">24.22</td>
+                <td class="text-end" data-sort-value="47.16">47.16</td><td class="text-end">23.56</td>
+                <td class="text-end" data-sort-value="47.35">47.35</td><td class="text-end">21.54</td>
+                <td class="text-end" data-sort-value="28.87">28.87</td><td class="text-end">22.06</td>
+            </tr>
+            <tr>
+                <td>Bagel-Think</td>
+                <td class="text-end" data-sort-value="37.40">37.40</td><td class="text-end">23.97</td>
+                <td class="text-end" data-sort-value="28.98">28.98</td><td class="text-end">16.82</td>
+                <td class="text-end" data-sort-value="42.51">42.51</td><td class="text-end">26.49</td>
+                <td class="text-end" data-sort-value="36.11">36.11</td><td class="text-end">26.75</td>
+                <td class="text-end" data-sort-value="43.15">43.15</td><td class="text-end">25.57</td>
+                <td class="text-end" data-sort-value="40.46">40.46</td><td class="text-end">23.83</td>
+                <td class="text-end" data-sort-value="33.34">33.34</td><td class="text-end">24.70</td>
+            </tr>
+            <tr>
+                <td>Step1X-Edit</td>
+                <td class="text-end" data-sort-value="34.47">34.47</td><td class="text-end">23.41</td>
+                <td class="text-end" data-sort-value="28.05">28.05</td><td class="text-end">16.68</td>
+                <td class="text-end" data-sort-value="33.26">33.26</td><td class="text-end">24.56</td>
+                <td class="text-end" data-sort-value="60.48">60.48</td><td class="text-end">25.94</td>
+                <td class="text-end" data-sort-value="46.47">46.47</td><td class="text-end">24.98</td>
+                <td class="text-end" data-sort-value="57.81">57.81</td><td class="text-end">23.97</td>
+                <td class="text-end" data-sort-value="34.11">34.11</td><td class="text-end">24.03</td>
+            </tr>
+            <tr>
+                <td>FLUX.1 Kontext</td>
+                <td class="text-end" data-sort-value="37.36">37.36</td><td class="text-end">19.78</td>
+                <td class="text-end" data-sort-value="32.29">32.29</td><td class="text-end">14.61</td>
+                <td class="text-end" data-sort-value="39.12">39.12</td><td class="text-end">20.10</td>
+                <td class="text-end" data-sort-value="58.35">58.35</td><td class="text-end">20.38</td>
+                <td class="text-end" data-sort-value="50.39">50.39</td><td class="text-end">20.99</td>
+                <td class="text-end" data-sort-value="58.05">58.05</td><td class="text-end">18.52</td>
+                <td class="text-end" data-sort-value="37.56">37.56</td><td class="text-end">19.84</td>
+            </tr>
+            <tr>
+                <td>Qwen-Edit</td>
+                <td class="text-end" data-sort-value="40.48">40.48</td><td class="text-end">23.73</td>
+                <td class="text-end" data-sort-value="30.17">30.17</td><td class="text-end">12.33</td>
+                <td class="text-end" data-sort-value="44.83">44.83</td><td class="text-end">26.11</td>
+                <td class="text-end" data-sort-value="53.74">53.74</td><td class="text-end">27.31</td>
+                <td class="text-end" data-sort-value="55.99">55.99</td><td class="text-end">25.53</td>
+                <td class="text-end" data-sort-value="67.76">67.76</td><td class="text-end">25.71</td>
+                <td class="text-end" data-sort-value="38.12">38.12</td><td class="text-end">24.81</td>
+            </tr>
+    
+            <tr class="table-group-divider"></tr>
+            <tr>
+                <td><span class="badge text-bg-secondary"><strong>Ours</strong></span></td>
+                <td class="text-end" data-sort-value="54.74"><strong>54.74</strong></td><td class="text-end"><strong>23.31</strong></td>
+                <td class="text-end" data-sort-value="50.58"><strong>50.58</strong></td><td class="text-end"><strong>15.33</strong></td>
+                <td class="text-end" data-sort-value="60.18"><strong>60.18</strong></td><td class="text-end"><strong>24.65</strong></td>
+                <td class="text-end" data-sort-value="73.00"><strong>73.00</strong></td><td class="text-end"><strong>26.33</strong></td>
+                <td class="text-end" data-sort-value="75.05"><strong>75.05</strong></td><td class="text-end"><strong>25.80</strong></td>
+                <td class="text-end" data-sort-value="77.08"><strong>77.08</strong></td><td class="text-end"><strong>23.19</strong></td>
+                <td class="text-end" data-sort-value="55.98"><strong>55.98</strong></td><td class="text-end"><strong>24.01</strong></td>   
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    
+        <!-- 仅本表格使用的排序 + Acc 第一/第二名标注（无依赖） -->
+        <script>
+        (function () {
+        function init() {
+            const table = document.getElementById('vdc-leaderboard');
+            if (!table) return;
+    
+            const thead = table.tHead;
+            const headerRow = thead?.querySelector('tr:last-child'); // 指标行（第二行）
+            const tbody = table.tBodies[0];
+            if (!headerRow || !tbody) return;
+    
+            // 初始索引：保证稳定排序（值相等时保持原始顺序）
+            Array.from(tbody.rows).forEach((tr, i) => tr.dataset._idx = i);
+    
+            const parse = (cell, type) => {
+            const raw = cell?.getAttribute('data-sort-value') ?? (cell?.textContent || '').trim();
+            if (type === 'number') {
+                const n = Number(String(raw).replace(/[^\d.+-]/g, ''));
+                return Number.isNaN(n) ? Number.NEGATIVE_INFINITY : n;
+                }
+            return String(raw).toLowerCase();
+            };
+    
+            function markBestSecond() {
+            // 清理旧标注
+            tbody.querySelectorAll('td.best, td.second').forEach(td => td.classList.remove('best','second'));
+            // 对所有带 data-acc 的列做第一/第二名标注
+            const accThs = headerRow.querySelectorAll('th[data-acc]');
+            accThs.forEach(th => {
+                const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+                const vals = Array.from(tbody.rows)
+                .filter(r => r.cells.length) // 跳过空分隔行
+                .map(r => ({ td: r.cells[colIndex], v: parse(r.cells[colIndex], 'number') }))
+                .filter(o => Number.isFinite(o.v));
+                if (!vals.length) return;
+                const uniq = [...new Set(vals.map(o => o.v))].sort((a,b) => b - a);
+                const first = uniq[0];
+                const second = uniq.find(v => v < first);
+                vals.forEach(({td, v}) => {
+                if (v === first) td.classList.add('best');
+                else if (second !== undefined && v === second) td.classList.add('second');
+                });
+            });
+            }
+    
+            function sortBy(th) {
+            const type = th.getAttribute('data-type') || 'text';
+            const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+            const nextDir = th.getAttribute('aria-sort') === 'asc' ? 'desc' : 'asc';
+            const rows = Array.from(tbody.rows).filter(r => r.cells.length);
+    
+            rows.sort((a, b) => {
+                const va = parse(a.cells[colIndex], type);
+                const vb = parse(b.cells[colIndex], type);
+                let cmp = va < vb ? -1 : va > vb ? 1 : 0;
+                if (cmp === 0) cmp = (+a.dataset._idx) - (+b.dataset._idx);
+                return nextDir === 'asc' ? cmp : -cmp;
+            });
+    
+            headerRow.querySelectorAll('th[data-sort]').forEach(h => h.removeAttribute('aria-sort'));
+            th.setAttribute('aria-sort', nextDir);
+    
+            const frag = document.createDocumentFragment();
+            rows.forEach(r => frag.appendChild(r));
+            tbody.appendChild(frag);
+    
+            // 排序后再次标注（可选）
+            markBestSecond();
+            }
+    
+            // 事件委托：点击/回车/空格即可排序
+            headerRow.addEventListener('click', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (th) sortBy(th);
+            });
+            headerRow.addEventListener('keydown', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (!th) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                sortBy(th);
+            }
+            });
+    
+            // 首次渲染标注
+            markBestSecond();
+        }
+    
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+            init();
+        }
+        })();
+        </script>
+    
+        <!-- /* T2I Tab */ -->
+        <!-- 仅用于本表格的极简排序/标注样式（作用域限此卡片） -->
+        <style>
+        #t2i-leaderboard thead th[data-sort] { cursor: pointer; user-select: none; white-space: nowrap; }
+        #t2i-leaderboard thead th[data-sort]::after { content: ""; margin-left: .35rem; opacity: .45; }
+        #t2i-leaderboard thead th[aria-sort="asc"]::after { content: "▲"; opacity: 1; }
+        #t2i-leaderboard thead th[aria-sort="desc"]::after { content: "▼"; opacity: 1; }
+        #t2i-leaderboard td.text-end { font-variant-numeric: tabular-nums; }
+    
+        /* 第一/第二名（Acc 列）色块 */
+        #t2i-leaderboard td.best::before,
+        #t2i-leaderboard td.second::before {
+            content: ""; display: inline-block; width: .7em; height: .7em; border-radius: 2px;
+            margin-right: .4em; vertical-align: -1px;
+        }
+        #t2i-leaderboard td.best::before   { background: #3b82f6; } /* 蓝：第一 */
+        #t2i-leaderboard td.second::before { background: #22c55e; } /* 绿：第二 */
+        </style>
+    
+        <style>
+        /* —— 仅该表使用 —— */
+        #t2i-leaderboard thead tr:first-child th {           /* 分组标题行 */
+            text-align: center !important;
+            vertical-align: middle;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        #t2i-leaderboard thead tr:first-child th[rowspan] {  /* 左侧 Model 列保持左对齐 */
+            text-align: left !important;
+        }
+        #t2i-leaderboard thead tr:nth-child(2) th {          /* 指标行（Acc）整体居中 */
+            text-align: center !important;
+        }
+        </style>
+    
+        <p class="card-text">
+        Quantitative comparison on <strong>StructT2IBench</strong>, reporting <strong>Accuracy (%)</strong>. Each column is clickable to view its ranking.
+        <span class="ms-2"><span style="display:inline-block;width:.75em;height:.75em;background:#3b82f6;border-radius:2px;margin-right:.35em;"></span>Best Performance</span>
+        <span class="ms-3"><span style="display:inline-block;width:.75em;height:.75em;background:#22c55e;border-radius:2px;margin-right:.35em;"></span>Second Best</span>
+        </p>
+    
+        <div class="table-responsive">
+        <table id="t2i-leaderboard" class="table table-hover align-middle">
+            <thead>
+            <!-- 任务分组行 -->
+            <tr class="table-primary">
+                <th scope="col" rowspan="2">Model</th>
+                <th scope="col">Chart</th>
+                <th scope="col">Graph</th>
+                <th scope="col">Math</th>
+                <th scope="col">Puzzle</th>
+                <th scope="col">Science</th>
+                <th scope="col">Table</th>
+                <th scope="col">Overall</th>
+            </tr>
+            <!-- 指标行（这些列可排序） -->
+            <tr>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <!-- 数据行：与 LaTeX 表一致 -->
+            <tr>
+                <td>Seedream 4.0</td>
+                <td class="text-end" data-sort-value="35.79"><span>35.79</span></td>
+                <td class="text-end" data-sort-value="54.08">54.08</td>
+                <td class="text-end" data-sort-value="63.33"><span>63.33</span></td>
+                <td class="text-end" data-sort-value="50.89">50.89</td>
+                <td class="text-end" data-sort-value="62.59"><span>62.59</span></td>
+                <td class="text-end" data-sort-value="68.94">68.94</td>
+                <td class="text-end" data-sort-value="47.52">47.52</td>
+            </tr>
+            <tr>
+                <td>Nano banana</td>
+                <td class="text-end" data-sort-value="35.55">35.55</td>
+                <td class="text-end" data-sort-value="58.96"><span>58.96</span></td>
+                <td class="text-end" data-sort-value="64.81"><span>64.81</span></td>
+                <td class="text-end" data-sort-value="63.87"><span>63.87</span></td>
+                <td class="text-end" data-sort-value="60.75">60.75</td>
+                <td class="text-end" data-sort-value="67.20">67.20</td>
+                <td class="text-end" data-sort-value="48.45"><span>48.45</span></td>
+            </tr>
+            <tr>
+                <td>GPT-Image</td>
+                <td class="text-end" data-sort-value="37.09"><span>37.09</span></td>
+                <td class="text-end" data-sort-value="57.00"><span>57.00</span></td>
+                <td class="text-end" data-sort-value="63.25">63.25</td>
+                <td class="text-end" data-sort-value="59.42"><span>59.42</span></td>
+                <td class="text-end" data-sort-value="60.94"><span>60.94</span></td>
+                <td class="text-end" data-sort-value="83.31"><span>83.31</span></td>
+                <td class="text-end" data-sort-value="49.58"><span>49.58</span></td>
+            </tr>
+            <tr class="table-group-divider"></tr>
+            <tr>
+                <td>UniWorld-V1</td>
+                <td class="text-end" data-sort-value="1.71">1.71</td>
+                <td class="text-end" data-sort-value="5.52">5.52</td>
+                <td class="text-end" data-sort-value="4.72">4.72</td>
+                <td class="text-end" data-sort-value="1.58">1.58</td>
+                <td class="text-end" data-sort-value="8.82">8.82</td>
+                <td class="text-end" data-sort-value="5.25">5.25</td>
+                <td class="text-end" data-sort-value="3.20">3.20</td>
+            </tr>
+            <tr>
+                <td>Bagel</td>
+                <td class="text-end" data-sort-value="4.66">4.66</td>
+                <td class="text-end" data-sort-value="3.61">3.61</td>
+                <td class="text-end" data-sort-value="4.02">4.02</td>
+                <td class="text-end" data-sort-value="4.46">4.46</td>
+                <td class="text-end" data-sort-value="8.60">8.60</td>
+                <td class="text-end" data-sort-value="5.74">5.74</td>
+                <td class="text-end" data-sort-value="4.69">4.69</td>
+            </tr>
+            <tr>
+                <td>Bagel-Think</td>
+                <td class="text-end" data-sort-value="4.81">4.81</td>
+                <td class="text-end" data-sort-value="15.33">15.33</td>
+                <td class="text-end" data-sort-value="13.89">13.89</td>
+                <td class="text-end" data-sort-value="15.22">15.22</td>
+                <td class="text-end" data-sort-value="19.05">19.05</td>
+                <td class="text-end" data-sort-value="8.97">8.97</td>
+                <td class="text-end" data-sort-value="9.03">9.03</td>
+            </tr>
+            <tr>
+                <td>Hidream-I1-Full</td>
+                <td class="text-end" data-sort-value="9.47">9.47</td>
+                <td class="text-end" data-sort-value="20.84">20.84</td>
+                <td class="text-end" data-sort-value="19.20">19.20</td>
+                <td class="text-end" data-sort-value="18.00">18.00</td>
+                <td class="text-end" data-sort-value="26.77">26.77</td>
+                <td class="text-end" data-sort-value="27.05">27.05</td>
+                <td class="text-end" data-sort-value="14.77">14.77</td>
+            </tr>
+            <tr>
+                <td>OmniGen2</td>
+                <td class="text-end" data-sort-value="10.67">10.67</td>
+                <td class="text-end" data-sort-value="22.51">22.51</td>
+                <td class="text-end" data-sort-value="22.89">22.89</td>
+                <td class="text-end" data-sort-value="18.63">18.63</td>
+                <td class="text-end" data-sort-value="28.00">28.00</td>
+                <td class="text-end" data-sort-value="22.61">22.61</td>
+                <td class="text-end" data-sort-value="16.24">16.24</td>
+            </tr>
+            <tr>
+                <td>FLUX.1 Dev</td>
+                <td class="text-end" data-sort-value="12.35">12.35</td>
+                <td class="text-end" data-sort-value="20.09">20.09</td>
+                <td class="text-end" data-sort-value="19.86">19.86</td>
+                <td class="text-end" data-sort-value="20.63">20.63</td>
+                <td class="text-end" data-sort-value="25.25">25.25</td>
+                <td class="text-end" data-sort-value="27.00">27.00</td>
+                <td class="text-end" data-sort-value="16.51">16.51</td>
+            </tr>
+            <tr>
+                <td>FLUX.1 Kontext</td>
+                <td class="text-end" data-sort-value="17.22">17.22</td>
+                <td class="text-end" data-sort-value="24.64">24.64</td>
+                <td class="text-end" data-sort-value="21.42">21.42</td>
+                <td class="text-end" data-sort-value="24.06">24.06</td>
+                <td class="text-end" data-sort-value="30.97">30.97</td>
+                <td class="text-end" data-sort-value="29.16">29.16</td>
+                <td class="text-end" data-sort-value="20.36">20.36</td>
+            </tr>
+            <tr>
+                <td>Ovis-U1</td>
+                <td class="text-end" data-sort-value="24.75">24.75</td>
+                <td class="text-end" data-sort-value="16.08">16.08</td>
+                <td class="text-end" data-sort-value="19.45">19.45</td>
+                <td class="text-end" data-sort-value="21.23">21.23</td>
+                <td class="text-end" data-sort-value="26.03">26.03</td>
+                <td class="text-end" data-sort-value="12.70">12.70</td>
+                <td class="text-end" data-sort-value="22.83">22.83</td>
+            </tr>
+            <tr>
+                <td>Qwen-Image</td>
+                <td class="text-end" data-sort-value="32.23">32.23</td>
+                <td class="text-end" data-sort-value="48.05">48.05</td>
+                <td class="text-end" data-sort-value="46.98">46.98</td>
+                <td class="text-end" data-sort-value="48.90">48.90</td>
+                <td class="text-end" data-sort-value="53.51">53.51</td>
+                <td class="text-end" data-sort-value="73.65"><span>73.65</span></td>
+                <td class="text-end" data-sort-value="41.03">41.03</td>
+            </tr>
+            <tr class="table-group-divider"></tr>
+            <tr>
+                <td><span class="badge text-bg-secondary"><strong>Ours</strong></span></td>
+                <td class="text-end" data-sort-value="20.91"><strong>20.91</strong></td>
+                <td class="text-end" data-sort-value="33.45"><strong>33.45</strong></td>
+                <td class="text-end" data-sort-value="41.70"><strong>41.70</strong></td>
+                <td class="text-end" data-sort-value="30.66"><strong>30.66</strong></td>
+                <td class="text-end" data-sort-value="41.46"><strong>41.46</strong></td>
+                <td class="text-end" data-sort-value="32.26"><strong>32.26</strong></td>
+                <td class="text-end" data-sort-value="28.80"><strong>28.80</strong></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    
+        <!-- 仅本表格使用的排序 + Acc 第一/第二名标注（无依赖） -->
+        <script>
+        (function () {
+        function init() {
+            const table = document.getElementById('t2i-leaderboard');
+            if (!table) return;
+    
+            const thead = table.tHead;
+            const headerRow = thead?.querySelector('tr:last-child'); // 指标行（第二行）
+            const tbody = table.tBodies[0];
+            if (!headerRow || !tbody) return;
+    
+            // 初始索引：保证稳定排序（值相等时保持原始顺序）
+            Array.from(tbody.rows).forEach((tr, i) => tr.dataset._idx = i);
+    
+            const parse = (cell, type) => {
+            const raw = cell?.getAttribute('data-sort-value') ?? (cell?.textContent || '').trim();
+            if (type === 'number') {
+                const n = Number(String(raw).replace(/[^\d.+-]/g, ''));
+                return Number.isNaN(n) ? Number.NEGATIVE_INFINITY : n;
+            }
+            return String(raw).toLowerCase();
+            };
+    
+            function markBestSecond() {
+            // 清理旧标注
+            tbody.querySelectorAll('td.best, td.second').forEach(td => td.classList.remove('best','second'));
+            // 对所有带 data-acc 的列做第一/第二名标注
+            const accThs = headerRow.querySelectorAll('th[data-acc]');
+            accThs.forEach(th => {
+                const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+                const vals = Array.from(tbody.rows)
+                .filter(r => r.cells.length) // 跳过空分隔行
+                .map(r => ({ td: r.cells[colIndex], v: parse(r.cells[colIndex], 'number') }))
+                .filter(o => Number.isFinite(o.v));
+                if (!vals.length) return;
+                const uniq = [...new Set(vals.map(o => o.v))].sort((a,b) => b - a);
+                const first = uniq[0];
+                const second = uniq.find(v => v < first);
+                vals.forEach(({td, v}) => {
+                if (v === first) td.classList.add('best');
+                else if (second !== undefined && v === second) td.classList.add('second');
+                });
+            });
+            }
+    
+            function sortBy(th) {
+            const type = th.getAttribute('data-type') || 'text';
+            const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+            const nextDir = th.getAttribute('aria-sort') === 'asc' ? 'desc' : 'asc';
+            const rows = Array.from(tbody.rows).filter(r => r.cells.length);
+    
+            rows.sort((a, b) => {
+                const va = parse(a.cells[colIndex], type);
+                const vb = parse(b.cells[colIndex], type);
+                let cmp = va < vb ? -1 : va > vb ? 1 : 0;
+                if (cmp === 0) cmp = (+a.dataset._idx) - (+b.dataset._idx);
+                return nextDir === 'asc' ? cmp : -cmp;
+            });
+    
+            headerRow.querySelectorAll('th[data-sort]').forEach(h => h.removeAttribute('aria-sort'));
+            th.setAttribute('aria-sort', nextDir);
+    
+            const frag = document.createDocumentFragment();
+            rows.forEach(r => frag.appendChild(r));
+            tbody.appendChild(frag);
+    
+            // 排序后再次标注
+            markBestSecond();
+            }
+    
+            // 事件委托：点击/回车/空格即可排序
+            headerRow.addEventListener('click', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (th) sortBy(th);
+            });
+            headerRow.addEventListener('keydown', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (!th) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                sortBy(th);
+            }
+            });
+    
+            // 首次渲染标注
+            markBestSecond();
+        }
+    
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+            init();
+        }
+        })();
+        </script>
+    
+    
+        <!-- Chart-only Edit -->
+        <style>
+        #charts-leaderboard thead th[data-sort] { cursor: pointer; user-select: none; white-space: nowrap; }
+        #charts-leaderboard thead th[data-sort]::after { content: ""; margin-left: .35rem; opacity: .45; }
+        #charts-leaderboard thead th[aria-sort="asc"]::after { content: "▲"; opacity: 1; }
+        #charts-leaderboard thead th[aria-sort="desc"]::after { content: "▼"; opacity: 1; }
+        #charts-leaderboard td.text-end { font-variant-numeric: tabular-nums; }
+    
+        /* 第一/第二名（Acc 列）色块 */
+        #charts-leaderboard td.best::before,
+        #charts-leaderboard td.second::before {
+            content: ""; display: inline-block; width: .7em; height: .7em; border-radius: 2px;
+            margin-right: .4em; vertical-align: -1px;
+        }
+        #charts-leaderboard td.best::before   { background: #3b82f6; } /* 蓝：第一 */
+        #charts-leaderboard td.second::before { background: #22c55e; } /* 绿：第二 */
+        </style>
+    
+        <style>
+        /* —— 仅该表使用 —— */
+        #charts-leaderboard thead tr:first-child th {           /* 分组标题行 */
+            text-align: center !important;
+            vertical-align: middle;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        #charts-leaderboard thead tr:first-child th[rowspan] {  /* 左侧 Model 列保持左对齐 */
+            text-align: left !important;
+        }
+        #charts-leaderboard thead tr:nth-child(2) th {          /* 指标行（Acc/PSNR）整体居中 */
+            text-align: center !important;
+        }
+        </style>
+    
+        <p class="card-text">
+        <strong>StructEditBench</strong> — reporting <strong>Accuracy (%)</strong> &amp; <strong>PSNR</strong>. Click any column to sort.
+        <span class="ms-2"><span style="display:inline-block;width:.75em;height:.75em;background:#3b82f6;border-radius:2px;margin-right:.35em;"></span>Best Performance</span>
+        <span class="ms-3"><span style="display:inline-block;width:.75em;height:.75em;background:#22c55e;border-radius:2px;margin-right:.35em;"></span>Second Best</span>
+        </p>
+    
+        <div class="table-responsive">
+        <table id="charts-leaderboard" class="table table-hover align-middle">
+            <thead>
+            <!-- 任务分组行 -->
+            <tr class="table-primary">
+                <th scope="col" rowspan="2">Model</th>
+                <th scope="col" colspan="2">Category</th>
+                <th scope="col" colspan="2">Color</th>
+                <th scope="col" colspan="2">Num</th>
+                <th scope="col" colspan="2">Auxiliary</th>
+                <th scope="col" colspan="2">Add&amp;Del</th>
+                <th scope="col" colspan="2">Overall</th>
+            </tr>
+            <!-- 指标行（这些列可排序） -->
+            <tr>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+                <th class="text-end" data-sort data-type="number" data-acc>Acc ↑</th>
+                <th class="text-end" data-sort data-type="number">PSNR ↑</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <!-- 数据行：与 LaTeX 表一致 -->
+            <tr>
+                <td>GPT-Image</td>
+                <td class="text-end" data-sort-value="40.62">40.62</td><td class="text-end" data-sort-value="9.85">9.85</td>
+                <td class="text-end" data-sort-value="54.57">54.57</td><td class="text-end" data-sort-value="13.91">13.91</td>
+                <td class="text-end" data-sort-value="33.12">33.12</td><td class="text-end" data-sort-value="13.48">13.48</td>
+                <td class="text-end" data-sort-value="64.03">64.03</td><td class="text-end" data-sort-value="13.48">13.48</td>
+                <td class="text-end" data-sort-value="38.02">38.02</td><td class="text-end" data-sort-value="12.73">12.73</td>
+                <td class="text-end" data-sort-value="45.82">45.82</td><td class="text-end" data-sort-value="12.56">12.56</td>
+            </tr>
+            <tr>
+                <td>Nano Banana</td>
+                <td class="text-end" data-sort-value="39.75">39.75</td><td class="text-end" data-sort-value="10.33">10.33</td>
+                <td class="text-end" data-sort-value="54.34">54.34</td><td class="text-end" data-sort-value="17.59">17.59</td>
+                <td class="text-end" data-sort-value="35.64">35.64</td><td class="text-end" data-sort-value="16.56">16.56</td>
+                <td class="text-end" data-sort-value="67.40">67.40</td><td class="text-end" data-sort-value="17.39">17.39</td>
+                <td class="text-end" data-sort-value="36.77">36.77</td><td class="text-end" data-sort-value="13.88">13.88</td>
+                <td class="text-end" data-sort-value="46.42">46.42</td><td class="text-end" data-sort-value="14.93">14.93</td>
+            </tr>
+            <tr>
+                <td>Seedream 4.0</td>
+                <td class="text-end" data-sort-value="38.13">38.13</td><td class="text-end" data-sort-value="9.67">9.67</td>
+                <td class="text-end" data-sort-value="61.84">61.84</td><td class="text-end" data-sort-value="21.77">21.77</td>
+                <td class="text-end" data-sort-value="36.00">36.00</td><td class="text-end" data-sort-value="19.22">19.22</td>
+                <td class="text-end" data-sort-value="65.92">65.92</td><td class="text-end" data-sort-value="19.46">19.46</td>
+                <td class="text-end" data-sort-value="36.04">36.04</td><td class="text-end" data-sort-value="14.28">14.28</td>
+                <td class="text-end" data-sort-value="46.83">46.83</td><td class="text-end" data-sort-value="16.54">16.54</td>
+            </tr>
+            <!-- 分隔线（对应 LaTeX 的 \cmidrule 前后的分组） -->
+            <tr class="table-group-divider"></tr>
+            <tr>
+                <td>UniWorld-V1</td>
+                <td class="text-end" data-sort-value="5.98">5.98</td><td class="text-end" data-sort-value="7.60">7.60</td>
+                <td class="text-end" data-sort-value="8.19">8.19</td><td class="text-end" data-sort-value="8.29">8.29</td>
+                <td class="text-end" data-sort-value="2.58">2.58</td><td class="text-end" data-sort-value="7.57">7.57</td>
+                <td class="text-end" data-sort-value="10.24">10.24</td><td class="text-end" data-sort-value="8.62">8.62</td>
+                <td class="text-end" data-sort-value="2.81">2.81</td><td class="text-end" data-sort-value="7.35">7.35</td>
+                <td class="text-end" data-sort-value="5.99">5.99</td><td class="text-end" data-sort-value="7.87">7.87</td>
+            </tr>
+            <tr>
+                <td>DiMOO</td>
+                <td class="text-end" data-sort-value="11.20">11.20</td><td class="text-end" data-sort-value="9.82">9.82</td>
+                <td class="text-end" data-sort-value="15.31">15.31</td><td class="text-end" data-sort-value="16.97">16.97</td>
+                <td class="text-end" data-sort-value="17.39">17.39</td><td class="text-end" data-sort-value="17.30">17.30</td>
+                <td class="text-end" data-sort-value="21.57">21.57</td><td class="text-end" data-sort-value="17.59">17.59</td>
+                <td class="text-end" data-sort-value="18.57">18.57</td><td class="text-end" data-sort-value="14.46">14.46</td>
+                <td class="text-end" data-sort-value="16.52">16.52</td><td class="text-end" data-sort-value="14.98">14.98</td>
+            </tr>
+            <tr>
+                <td>OmniGen2</td>
+                <td class="text-end" data-sort-value="17.30">17.30</td><td class="text-end" data-sort-value="8.61">8.61</td>
+                <td class="text-end" data-sort-value="28.84">28.84</td><td class="text-end" data-sort-value="11.78">11.78</td>
+                <td class="text-end" data-sort-value="15.48">15.48</td><td class="text-end" data-sort-value="14.03">14.03</td>
+                <td class="text-end" data-sort-value="22.42">22.42</td><td class="text-end" data-sort-value="16.59">16.59</td>
+                <td class="text-end" data-sort-value="10.54">10.54</td><td class="text-end" data-sort-value="12.11">12.11</td>
+                <td class="text-end" data-sort-value="18.55">18.55</td><td class="text-end" data-sort-value="12.44">12.44</td>
+            </tr>
+            <tr>
+                <td>Ovis-U1</td>
+                <td class="text-end" data-sort-value="18.15">18.15</td><td class="text-end" data-sort-value="9.57">9.57</td>
+                <td class="text-end" data-sort-value="30.68">30.68</td><td class="text-end" data-sort-value="15.38">15.38</td>
+                <td class="text-end" data-sort-value="20.79">20.79</td><td class="text-end" data-sort-value="15.13">15.13</td>
+                <td class="text-end" data-sort-value="25.49">25.49</td><td class="text-end" data-sort-value="14.25">14.25</td>
+                <td class="text-end" data-sort-value="17.21">17.21</td><td class="text-end" data-sort-value="13.11">13.11</td>
+                <td class="text-end" data-sort-value="21.94">21.94</td><td class="text-end" data-sort-value="13.30">13.30</td>
+            </tr>
+            <tr>
+                <td>Hidream-E1.1</td>
+                <td class="text-end" data-sort-value="22.69">22.69</td><td class="text-end" data-sort-value="9.29">9.29</td>
+                <td class="text-end" data-sort-value="39.86">39.86</td><td class="text-end" data-sort-value="14.07">14.07</td>
+                <td class="text-end" data-sort-value="21.49">21.49</td><td class="text-end" data-sort-value="15.04">15.04</td>
+                <td class="text-end" data-sort-value="32.65">32.65</td><td class="text-end" data-sort-value="14.34">14.34</td>
+                <td class="text-end" data-sort-value="18.05">18.05</td><td class="text-end" data-sort-value="12.71">12.71</td>
+                <td class="text-end" data-sort-value="26.36">26.36</td><td class="text-end" data-sort-value="12.91">12.91</td>
+            </tr>
+            <tr>
+                <td>Bagel</td>
+                <td class="text-end" data-sort-value="25.69">25.69</td><td class="text-end" data-sort-value="9.08">9.08</td>
+                <td class="text-end" data-sort-value="38.20">38.20</td><td class="text-end" data-sort-value="20.46">20.46</td>
+                <td class="text-end" data-sort-value="26.30">26.30</td><td class="text-end" data-sort-value="20.29">20.29</td>
+                <td class="text-end" data-sort-value="30.00">30.00</td><td class="text-end" data-sort-value="21.24">21.24</td>
+                <td class="text-end" data-sort-value="17.79">17.79</td><td class="text-end" data-sort-value="14.93">14.93</td>
+                <td class="text-end" data-sort-value="27.11">27.11</td><td class="text-end" data-sort-value="16.82">16.82</td>
+            </tr>
+            <tr>
+                <td>Step1X-Edit</td>
+                <td class="text-end" data-sort-value="21.96">21.96</td><td class="text-end" data-sort-value="10.40">10.40</td>
+                <td class="text-end" data-sort-value="36.51">36.51</td><td class="text-end" data-sort-value="19.75">19.75</td>
+                <td class="text-end" data-sort-value="25.46">25.46</td><td class="text-end" data-sort-value="20.22">20.22</td>
+                <td class="text-end" data-sort-value="34.40">34.40</td><td class="text-end" data-sort-value="19.46">19.46</td>
+                <td class="text-end" data-sort-value="24.92">24.92</td><td class="text-end" data-sort-value="15.11">15.11</td>
+                <td class="text-end" data-sort-value="28.05">28.05</td><td class="text-end" data-sort-value="16.68">16.68</td>
+            </tr>
+            <tr>
+                <td>Bagel-Think</td>
+                <td class="text-end" data-sort-value="24.55">24.55</td><td class="text-end" data-sort-value="9.00">9.00</td>
+                <td class="text-end" data-sort-value="45.46">45.46</td><td class="text-end" data-sort-value="19.35">19.35</td>
+                <td class="text-end" data-sort-value="25.60">25.60</td><td class="text-end" data-sort-value="20.14">20.14</td>
+                <td class="text-end" data-sort-value="34.54">34.54</td><td class="text-end" data-sort-value="20.62">20.62</td>
+                <td class="text-end" data-sort-value="18.69">18.69</td><td class="text-end" data-sort-value="14.58">14.58</td>
+                <td class="text-end" data-sort-value="28.98">28.98</td><td class="text-end" data-sort-value="16.38">16.38</td>
+            </tr>
+            <tr>
+                <td>Qwen-Edit</td>
+                <td class="text-end" data-sort-value="23.53">23.53</td><td class="text-end" data-sort-value="9.52">9.52</td>
+                <td class="text-end" data-sort-value="41.80">41.80</td><td class="text-end" data-sort-value="13.63">13.63</td>
+                <td class="text-end" data-sort-value="22.90">22.90</td><td class="text-end" data-sort-value="13.69">13.69</td>
+                <td class="text-end" data-sort-value="42.39">42.39</td><td class="text-end" data-sort-value="13.07">13.07</td>
+                <td class="text-end" data-sort-value="23.27">23.27</td><td class="text-end" data-sort-value="12.46">12.46</td>
+                <td class="text-end" data-sort-value="30.17">30.17</td><td class="text-end" data-sort-value="12.33">12.33</td>
+            </tr>
+            <tr>
+                <td>FLUX.1 Kontext</td>
+                <td class="text-end" data-sort-value="24.67">24.67</td><td class="text-end" data-sort-value="10.14">10.14</td>
+                <td class="text-end" data-sort-value="44.56">44.56</td><td class="text-end" data-sort-value="16.53">16.53</td>
+                <td class="text-end" data-sort-value="29.24">29.24</td><td class="text-end" data-sort-value="16.74">16.74</td>
+                <td class="text-end" data-sort-value="44.02">44.02</td><td class="text-end" data-sort-value="16.79">16.79</td>
+                <td class="text-end" data-sort-value="23.06">23.06</td><td class="text-end" data-sort-value="13.95">13.95</td>
+                <td class="text-end" data-sort-value="32.29">32.29</td><td class="text-end" data-sort-value="14.61">14.61</td>
+            </tr>
+    
+            <!-- 分隔线（对应 LaTeX 的 \cmidrule 前后的分组） -->
+            <tr class="table-group-divider"></tr>
+            <tr>
+               <td><span class="badge text-bg-secondary"><strong>Ours</strong></span></td>
+                <td class="text-end" data-sort-value="50.81"><strong>50.81</strong></td><td class="text-end" data-sort-value="10.40"><strong>10.40</strong></td>
+                <td class="text-end" data-sort-value="64.10"><strong>64.10</strong></td><td class="text-end" data-sort-value="18.16"><strong>18.16</strong></td>
+                <td class="text-end" data-sort-value="33.45"><strong>33.45</strong></td><td class="text-end" data-sort-value="17.04"><strong>17.04</strong></td>
+                <td class="text-end" data-sort-value="66.34"><strong>66.34</strong></td><td class="text-end" data-sort-value="17.90"><strong>17.90</strong></td>
+                <td class="text-end" data-sort-value="38.10"><strong>38.10</strong></td><td class="text-end" data-sort-value="14.37"><strong>14.37</strong></td>
+                <td class="text-end" data-sort-value="50.58"><strong>50.58</strong></td><td class="text-end" data-sort-value="15.33"><strong>15.33</strong></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    
+        <!-- 仅本表格使用的排序 + Acc 第一/第二名标注（无依赖） -->
+        <script>
+        (function () {
+        function init() {
+            const table = document.getElementById('charts-leaderboard');
+            if (!table) return;
+    
+            const thead = table.tHead;
+            const headerRow = thead?.querySelector('tr:last-child'); // 指标行（第二行）
+            const tbody = table.tBodies[0];
+            if (!headerRow || !tbody) return;
+    
+            // 初始索引：保证稳定排序（值相等时保持原始顺序）
+            Array.from(tbody.rows).forEach((tr, i) => tr.dataset._idx = i);
+    
+            const parse = (cell, type) => {
+            const raw = cell?.getAttribute('data-sort-value') ?? (cell?.textContent || '').trim();
+            if (type === 'number') {
+                const n = Number(String(raw).replace(/[^\d.+-]/g, ''));
+                return Number.isNaN(n) ? Number.NEGATIVE_INFINITY : n;
+            }
+            return String(raw).toLowerCase();
+            };
+    
+            function markBestSecond() {
+            // 清理旧标注
+            tbody.querySelectorAll('td.best, td.second').forEach(td => td.classList.remove('best','second'));
+            // 对所有带 data-acc 的列做第一/第二名标注
+            const accThs = headerRow.querySelectorAll('th[data-acc]');
+            accThs.forEach(th => {
+                const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+                const vals = Array.from(tbody.rows)
+                .filter(r => r.cells.length) // 跳过空分隔行
+                .map(r => ({ td: r.cells[colIndex], v: parse(r.cells[colIndex], 'number') }))
+                .filter(o => Number.isFinite(o.v));
+                if (!vals.length) return;
+                const uniq = [...new Set(vals.map(o => o.v))].sort((a,b) => b - a);
+                const first = uniq[0];
+                const second = uniq.find(v => v < first);
+                vals.forEach(({td, v}) => {
+                if (v === first) td.classList.add('best');
+                else if (second !== undefined && v === second) td.classList.add('second');
+                });
+            });
+            }
+    
+            function sortBy(th) {
+            const type = th.getAttribute('data-type') || 'text';
+            const colIndex = th.cellIndex + 1; // +1: Model 在第 0 列
+            const nextDir = th.getAttribute('aria-sort') === 'asc' ? 'desc' : 'asc';
+            const rows = Array.from(tbody.rows).filter(r => r.cells.length);
+    
+            rows.sort((a, b) => {
+                const va = parse(a.cells[colIndex], type);
+                const vb = parse(b.cells[colIndex], type);
+                let cmp = va < vb ? -1 : va > vb ? 1 : 0;
+                if (cmp === 0) cmp = (+a.dataset._idx) - (+b.dataset._idx);
+                return nextDir === 'asc' ? cmp : -cmp;
+            });
+    
+            headerRow.querySelectorAll('th[data-sort]').forEach(h => h.removeAttribute('aria-sort'));
+            th.setAttribute('aria-sort', nextDir);
+    
+            const frag = document.createDocumentFragment();
+            rows.forEach(r => frag.appendChild(r));
+            tbody.appendChild(frag);
+    
+            // 排序后再次标注
+            markBestSecond();
+            }
+    
+            // 事件委托：点击/回车/空格即可排序
+            headerRow.addEventListener('click', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (th) sortBy(th);
+            });
+            headerRow.addEventListener('keydown', (e) => {
+            const th = e.target.closest('th[data-sort]');
+            if (!th) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                sortBy(th);
+            }
+            });
+    
+            // 首次渲染标注
+            markBestSecond();
+        }
+    
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+            init();
+        }
+        })();
+        </script>
+
         </div>
     </div>
     <br>
@@ -201,7 +1123,7 @@
                 <figure class="figure">
                     <img src="./assets/fig2.jpg" class="img-thumbnail figure-img img-fluid rounded"
                          alt="online demo">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    <figcaption class="figure-caption"><strong>Data construction pipeline.</strong> We prompt GPT-5 to extract salient features, then generate paired editing instructions from the source code and rendered image. The source code is modified according to the code-editing instructions. The target image rendered from modified code is passed through rule-based filters to ensure the overall quality of the constructed dataset.</figcaption>
                 </figure>
             </div>
         </div>
@@ -209,29 +1131,29 @@
     <br>
 
     <!-- Video 1 -- video in modal -->
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title card-title-margin">Video<small class="text-body-secondary">(3min)</small></h2>
-            <hr class="body-hr"/>
+    <!-- <div class="card"> -->
+        <!-- <div class="card-body"> -->
+            <!-- <h2 class="card-title card-title-margin">Video<small class="text-body-secondary">(3min)</small></h2> -->
+            <!-- <hr class="body-hr"/> -->
 
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col">
+            <!-- <div class="container text-center"> -->
+                <!-- <div class="row"> -->
+                    <!-- <div class="col"> -->
                         <!-- video teaser -->
-                        <img src="./assets/video_teaser.png" class="img-thumbnail figure-img img-fluid rounded"
+                        <!-- <img src="./assets/video_teaser.png" class="img-thumbnail figure-img img-fluid rounded"
                              alt="video teaser">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col"> -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop">
                             Play Video
-                        </button>
+                        </button> -->
 
                         <!-- Youtube in Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                        <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -259,12 +1181,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> <!-- end row-->
-            </div> <!-- end container-->
-        </div>
-    </div>
-    <br>
+                    </div> -->
+                <!-- </div> --> <!-- end row-->
+            <!-- </div> --> <!-- end container-->
+        <!-- </div> -->
+    <!-- </div> -->
+    <!-- <br> -->
 
     <!-- Video 2 -- video in HTML -->
     <!--    <div class="card">-->
@@ -286,107 +1208,45 @@
     <!--    </div>-->
     <!--    <br>-->
 
-    <!-- Method -->
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title card-title-margin">Model Training</h2>
-            <hr class="body-hr"/>
-            <p class="card-text">
-                StructBench is a curated benchmark for structured visual generation and editing, spanning Math, Graph, Chart, Puzzle, and Table domains. We select diverse, high-quality items from our code-rendered dataset via clustering, stratified sampling, and dual GPT-5/human review. For each item, GPT-5 produces detailed descriptions that are decomposed into atomic Q&A pairs covering fine-grained attributes and relations. Evaluation uses StructScore, a controlled multi-turn VLM protocol with open-ended answers compared against concise ground truths. Through human audits and iterative Q&A refinement, metric reliability on ground-truth images improves from ~80% to >95%. The final benchmark includes 2,043 items and 30,989 Q&A pairs, with most samples featuring seven or more questions.
-            </p>
-            <div class="text-center">
-                <figure class="figure">
-                    <img src="assets/fig4.jpg" class="figure-img img-fluid rounded" alt="method">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                </figure>
-            </div>
-        </div>
-    </div>
-    <br>
 
     <!-- Benchmark -->
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title card-title-margin">StructBench</h2>
+            <h2 class="card-title card-title-margin">Benchmark Construction</h2>
             <hr class="body-hr"/>
             <p class="card-text">
-                StructBench is a curated benchmark for structured visual generation and editing, spanning Math, Graph, Chart, Puzzle, and Table domains. We select diverse, high-quality items from our code-rendered dataset via clustering, stratified sampling, and dual GPT-5/human review. For each item, GPT-5 produces detailed descriptions that are decomposed into atomic Q&A pairs covering fine-grained attributes and relations. Evaluation uses StructScore, a controlled multi-turn VLM protocol with open-ended answers compared against concise ground truths. Through human audits and iterative Q&A refinement, metric reliability on ground-truth images improves from ~80% to >95%. The final benchmark includes 2,043 items and 30,989 Q&A pairs, with most samples featuring seven or more questions.
+                StructBench is a curated benchmark for structured visual generation and editing, spanning Math, Graph, Chart, Puzzle, and Table domains. We select diverse, high-quality items from our code-rendered dataset via clustering, stratified sampling, and dual GPT-5/human review. For each item, GPT-5 produces detailed descriptions that are decomposed into atomic Q&A pairs covering fine-grained attributes and relations. Evaluation uses StructScore, a controlled multi-turn VLM protocol with open-ended answers compared against concise ground truths. Through human audits and iterative Q&A refinement, metric reliability on ground-truth images improves from ~80% to >95%. The final benchmark includes 1,714 items with 32,031 and 37,941 Q&A pairs for editing and generation respectively.
             </p>
             <div class="text-center">
                 <figure class="figure">
                     <img src="assets/fig3.jpg" class="figure-img img-fluid rounded" alt="method">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    <figcaption class="figure-caption"><strong>Benchmark construction and evaluation workflow.</strong> (a) Benchmark construction: We cluster the data into six categories, and for each editing and text-to-image (T2I) example, GPT-5 generates detailed image descriptions that are transformed into Q\&A pairs for evaluating diverse visual aspects. (b) Evaluation protocol: Using the Q\&A pairs, GPT-5 is queried on generated images for open-ended responses, which are compared with ground-truth answers to yield a final score.</figcaption>
                 </figure>
             </div>
         </div>
     </div>
     <br>
 
-    <!-- Experiments -->
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title card-title-margin">Experiments</h2>
-            <hr class="body-hr"/>
-            <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo
-                dapibus sit amet. Suspendisse condimentum, libero vel tempus mattis, risus risus vulputate libero,
-                elementum fermentum mi neque vel nisl. Maecenas facilisis maximus dignissim. Curabitur mattis vulputate
-                dui, tincidunt varius libero luctus eu. Mauris mauris nulla, scelerisque eget massa id, tincidunt congue
-                felis. Sed convallis tempor ipsum rhoncus viverra. Pellentesque nulla orci, accumsan volutpat fringilla
-                vitae, maximus sit amet tortor. Aliquam ultricies odio ut volutpat scelerisque. Donec nisl nisl,
-                porttitor vitae pharetra quis, fringilla sed mi. Fusce pretium dolor ut aliquam consequat. Cras
-                volutpat, tellus accumsan mattis molestie, nisl lacus tempus massa, nec malesuada tortor leo vel quam.
-                Aliquam vel ex consectetur, vehicula leo nec, efficitur eros. Donec convallis non urna quis feugiat.
-            </p>
-            <br>
-
-            <!-- Table example -->
-            <table class="table">
-                <thead>
-                <tr class="table-primary">
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            <div class="text-center">
-                <figure class="figure">
-                    <img src="./assets/experiments.png" class="img-thumbnail figure-img img-fluid rounded"
-                         alt="experiments">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
-                </figure>
+        <!-- Method -->
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title card-title-margin">Model Training</h2>
+                <hr class="body-hr"/>
+                <p class="card-text">
+                    We build on FLUX.1 Kontext, adapting its unified diffusion transformer for structured image generation and editing. Text is encoded with T5 (we discard CLIP), while both input and target images are encoded by a VAE; these tokens are concatenated and processed with joint attention. To strengthen high-level semantic understanding crucial for structured visuals, we add a lightweight MLP connector that aligns Qwen-VL multimodal features with the backbone, offering stable optimization and low overhead. Training proceeds in three stages: (1) Unified Alignment—freeze the backbone and train only the connector using simple data, suppressing T5 to avoid shortcutting; (2) Hybrid Visual Learning—jointly fine-tune on structured and general datasets with a mask-based loss that downweights backgrounds and unchanged regions; and (3) Thinking Enhancement—inject chain-of-thought reasoning via Qwen-VL and enable inference-time reasoning, where a VLM analyzes the input and guides the generator for complex, semantically grounded edits.
+                </p>
+                <div class="text-center">
+                    <figure class="figure">
+                        <img src="assets/fig4.jpg" class="figure-img img-fluid rounded" alt="method">
+                        <figcaption class="figure-caption"><strong>The three-stage progressive training pipeline.</strong> Training difficulty increases across stages, from alignment to hybrid visual learning and thinking enhancement.</figcaption>
+                    </figure>
+                </div>
             </div>
-
         </div>
-    </div>
-    <br>
+        <br>
 
     <!-- Supplementary Material -->
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-body">
             <h2 class="card-title card-title-margin">Supplementary Material</h2>
             <hr class="body-hr"/>
@@ -396,7 +1256,7 @@
             </p>
         </div>
     </div>
-    <br>
+    <br> -->
 
     <!-- Citation -->
     <div class="card">
@@ -455,7 +1315,7 @@
         <div class="row align-items-center">
             <!-- left layout -->
             <div class="col-12 col-md-6 text-md-start text-center">
-                <p class="footer-title mb-0">Title</p>
+                <p class="footer-title mb-0">Image Generation and Editing Meet Structured Visuals</p>
             </div>
             <!-- right layout -->
             <div class="col-12 col-md-6 text-md-end text-center">
